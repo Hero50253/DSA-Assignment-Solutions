@@ -1,51 +1,32 @@
 #include<stdio.h>
 
 int main() {
-    int arr[50];
-    int n, search, i;
-    int low, high, mid;
-    int flag = 0;
+    int arr[7] = {64,34,25,12,22,11,90};
+    int n=7;
+    int i,j,temp;
     
-    printf("enter number of elements: ");
-    scanf("%d", &n);
-    
-    printf("enter sorted numbers: ");
-    for(i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+    printf("orignal array:");
+    for(i=0; i<n; i++) {
+        printf("%d", arr[i]);
     }
+    printf("\n");
     
-    printf("enter number to search: ");
-    scanf("%d", &search);
     
-    // binary search starts here
-    low = 0;
-    high = n - 1;
-    
-    while(low <= high) {
-        mid = (low + high) / 2;
-        
-        if(arr[mid] == search) {
-            printf("number found at position %d\n", mid);
-            flag = 1;
-            break;
-        }
-        
-        if(arr[mid] < search) {
-            low = mid + 1;
-        }
-        else {
-            high = mid - 1; 
+    for(i=0;i<n-1;i++) {
+        for(j=0;j<n-1-i; j++) {
+            if(arr[j] > arr[j+1]) {
+                
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
         }
     }
-    
-    if(flag == 0) {
-        printf("number not found\n");
+    printf("sorted array:");
+    for(i=0; i<n; i++) {
+        printf("%d",arr[1]);
     }
-    
-    printf("your array was: ");
-    for(i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
+    printf("\n");
     
     return 0;
 }
