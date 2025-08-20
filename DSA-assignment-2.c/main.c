@@ -4,7 +4,7 @@ int main() {
     int arr[50];
     int n, search, i;
     int low, high, mid;
-    int flag = 0;  // to check if found or not
+    int flag = 0;
     
     printf("enter number of elements: ");
     scanf("%d", &n);
@@ -22,7 +22,7 @@ int main() {
     high = n - 1;
     
     while(low <= high) {
-        mid = (low + high) / 2;  // find middle
+        mid = (low + high) / 2;
         
         if(arr[mid] == search) {
             printf("number found at position %d\n", mid);
@@ -31,10 +31,10 @@ int main() {
         }
         
         if(arr[mid] < search) {
-            low = mid + 1;  // go to right side
+            low = mid + 1;
         }
         else {
-            high = mid - 1;  // go to left side
+            high = mid - 1; 
         }
     }
     
@@ -42,7 +42,6 @@ int main() {
         printf("number not found\n");
     }
     
-    // show the array
     printf("your array was: ");
     for(i = 0; i < n; i++) {
         printf("%d ", arr[i]);
